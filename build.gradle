@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'war'
 
 group = 'SampleApp'
 version = '1.0'
