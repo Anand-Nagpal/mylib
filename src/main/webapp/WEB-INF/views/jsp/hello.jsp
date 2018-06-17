@@ -33,6 +33,7 @@
     </p>
     <p>
 		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+		
 	</p>
 	</div>
 </div>
@@ -44,7 +45,7 @@
 		<h2>Request For Approval</h2>
 		
 		<p>
-			<a class="btn btn-default" href="#" role="button">Send Request</a>
+			<a class="btn btn-default" href="#" onclick="onButtonClick();return false;" role="button">Send Request</a>
 		</p>
 	</div>
 	<div class="col-md-4">
