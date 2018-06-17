@@ -5,10 +5,10 @@ import mylib.springmvc.model.User;
 
 public class UserServiceImpl implements UserService {
   
-  void register(User user){
+  public void register(User user){
   }
   
-  User validateUser(Login login){
+  public User validateUser(Login login){
 	  return null;
   }
 }
