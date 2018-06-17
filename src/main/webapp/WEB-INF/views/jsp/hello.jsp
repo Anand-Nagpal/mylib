@@ -14,7 +14,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">MyLib Project Ver1.0</a>
+		<a class="navbar-brand" href="#">MyLib Project Ver1.1</a>
 	</div>
   </div>
 </nav>
@@ -45,7 +45,8 @@
 		<h2>Request For Approval</h2>
 		
 		<p>
-			<a class="btn btn-default" href="#" onclick="onButtonClick();return false;" role="button">Send Request</a>
+			<a class="btn btn-default" href="#" role="button">Send Request</a>
+			<a id="myLink" title="Click to do something" href="PleaseEnableJavascript.html" onclick="onButtonClick();return false;">link text</a>
 		</p>
 	</div>
 	<div class="col-md-4">
@@ -75,6 +76,52 @@
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+    function onButtonClick() {
+	
+  alert("Hi");
+  
+  let filters = [];
+
+  let filterService = document.querySelector('#service').value;
+  if (filterService.startsWith('0x')) {
+    filterService = parseInt(filterService);
+  }
+  if (filterService) {
+    filters.push({services: [filterService]});
+  }
+
+  let filterName = document.querySelector('#name').value;
+  if (filterName) {
+    filters.push({name: filterName});
+  }
+
+  let filterNamePrefix = document.querySelector('#namePrefix').value;
+  if (filterNamePrefix) {
+    filters.push({namePrefix: filterNamePrefix});
+  }
+
+  let options = {};
+  if (document.querySelector('#allDevices').checked) {
+    options.acceptAllDevices = true;
+  } else {
+    options.filters = filters;
+  }
+
+  log('Requesting Bluetooth Device...');
+  log('with ' + JSON.stringify(options));
+  navigator.bluetooth.requestDevice(options)
+  .then(device => {
+    log('> Name:             ' + device.name);
+    log('> Id:               ' + device.id);
+    log('> Connected:        ' + device.gatt.connected);
+  })
+  .catch(error => {
+    log('Argh! ' + error);
+  });
+}
+</script>
  
 </body>
-</html>
+</html>	
