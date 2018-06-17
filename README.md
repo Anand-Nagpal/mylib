@@ -1,2 +1,1 @@
-# mylib
-My Library
+My Library Project
