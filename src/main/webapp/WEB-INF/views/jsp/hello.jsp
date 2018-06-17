@@ -14,7 +14,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">MyLib Project</a>
+		<a class="navbar-brand" href="#">MyLib Project Ver1.0</a>
 	</div>
   </div>
 </nav>
