@@ -14,7 +14,7 @@ public class HelloController {
 	public String printWelcome(ModelMap model) {
 
 		model.addAttribute("message", "MyLib - Welcome to Library App");
-		return "Welcome to MyLib App";
+		return "hello";
 
 	}
 
