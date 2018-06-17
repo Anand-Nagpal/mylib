@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Maven + Spring MVC</title>
+<title>MyLib</title>
  
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
@@ -14,7 +14,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="#">Spring 3 MVC Project</a>
+		<a class="navbar-brand" href="#">MyLib Project</a>
 	</div>
   </div>
 </nav>
@@ -41,33 +41,31 @@
  
   <div class="row">
 	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
+		<h2>Request For Approval</h2>
+		
 		<p>
-			<a class="btn btn-default" href="#" role="button">View details</a>
+			<a class="btn btn-default" href="#" role="button">Send Request</a>
 		</p>
 	</div>
 	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
+		<h2>Open Door</h2>
+		
 		<p>
-			<a class="btn btn-default" href="#" role="button">View details</a>
+			<a class="btn btn-default" href="#" role="button">Open Door</a>
 		</p>
 	</div>
 	<div class="col-md-4">
-		<h2>Heading</h2>
-		<p>ABC</p>
+		<h2>Lock Door</h2>
+		
 		<p>
-			<a class="btn btn-default" href="#" role="button">View details</a>
+			<a class="btn btn-default" href="#" role="button">Lock Door</a>
 		</p>
 	</div>
   </div>
  
  
   <hr>
-  <footer>
-	<p>&copy; Mkyong.com 2015</p>
-  </footer>
+  
 </div>
  
 <spring:url value="/resources/core/css/hello.js" var="coreJs" />
