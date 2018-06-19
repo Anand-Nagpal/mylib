@@ -46,7 +46,7 @@
 		
 		<p>
 			<a class="btn btn-default" href="#" role="button">Send Request</a>
-			<a id="myLink" title="Click to do something" href="PleaseEnableJavascript.html" onclick="onButtonClick();return false;">link text</a>
+			<a id="myLink" title="Test Bluetooth" href="PleaseEnableJavascript.html" onclick="onButtonClick();return false;">link text</a>
 		</p>
 	</div>
 	<div class="col-md-4">
@@ -80,46 +80,19 @@
 <script type="text/javascript">
     function onButtonClick() {
 	
-  alert("Hi");
+  alert("Hi - 2");
+
   
-  let filters = [];
-
-  let filterService = document.querySelector('#service').value;
-  if (filterService.startsWith('0x')) {
-    filterService = parseInt(filterService);
-  }
-  if (filterService) {
-    filters.push({services: [filterService]});
-  }
-
-  let filterName = document.querySelector('#name').value;
-  if (filterName) {
-    filters.push({name: filterName});
-  }
-
-  let filterNamePrefix = document.querySelector('#namePrefix').value;
-  if (filterNamePrefix) {
-    filters.push({namePrefix: filterNamePrefix});
-  }
-
-  let options = {};
-  if (document.querySelector('#allDevices').checked) {
-    options.acceptAllDevices = true;
-  } else {
-    options.filters = filters;
-  }
-
-  log('Requesting Bluetooth Device...');
-  log('with ' + JSON.stringify(options));
-  navigator.bluetooth.requestDevice(options)
+  chrome.bluetooth.startDiscovery(function () { 
+  navigator.bluetooth.requestDevice({ filters: [{ services:['battery_service'] }] })
   .then(device => {
-    log('> Name:             ' + device.name);
-    log('> Id:               ' + device.id);
-    log('> Connected:        ' + device.gatt.connected);
-  })
-  .catch(error => {
-    log('Argh! ' + error);
-  });
+
+    console.log(device);
+  return device.gatt.connect();
+  }).then(server => { console.log(server)}).catch(error  => { console.log(error); });
+
+
+
 }
 </script>
  
